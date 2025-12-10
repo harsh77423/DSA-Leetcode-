@@ -23,22 +23,44 @@ class Solution {
 
 // return nums[nums.length-1];
 
-Arrays.sort(nums);
-List<Integer> l = new ArrayList<>();
-l.add(nums[0]);
-for(int i=1 ; i < nums.length ; i++){
- if(nums[i-1] != nums[i]){
-    l.add(nums[i]);
+// Arrays.sort(nums);
+// List<Integer> l = new ArrayList<>();
+// l.add(nums[0]);
+// for(int i=1 ; i < nums.length ; i++){
+//  if(nums[i-1] != nums[i]){
+//     l.add(nums[i]);
 
- }  
+//  }  
+// }
+
+// int listSize = l.size();
+//  if(listSize < 3){
+//     return l.get(listSize - 1);
+
+//  }
+//  return l.get(listSize - 3);
+
+long firstmax = Long.MIN_VALUE;
+long secondmax = Long.MIN_VALUE;
+long thirdmax = nums[0];
+
+for(int i=0; i < nums.length ; i++){
+    if(nums[i] > firstmax){
+        thirdmax = secondmax;
+        secondmax = firstmax;
+        firstmax = nums[i];
+    }
+
+    else if(nums[i] > secondmax && nums[i] < firstmax){
+        thirdmax = secondmax;
+        secondmax = nums[i];
+
+    }else if(nums[i] > thirdmax && nums[i] < secondmax){
+        thirdmax = nums[i];
+    }
 }
-
-int listSize = l.size();
- if(listSize < 3){
-    return l.get(listSize - 1);
-
- }
- return l.get(listSize - 3);
+if(thirdmax == Long.MIN_VALUE || secondmax == Long.MIN_VALUE){return (int)firstmax;}
+return (int)thirdmax;
 
 }
 }
