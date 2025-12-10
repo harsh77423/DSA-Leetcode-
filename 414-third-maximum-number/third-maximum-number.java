@@ -40,27 +40,37 @@ class Solution {
 //  }
 //  return l.get(listSize - 3);
 
-long firstmax = Long.MIN_VALUE;
-long secondmax = Long.MIN_VALUE;
-long thirdmax = nums[0];
+// long firstmax = Long.MIN_VALUE;
+// long secondmax = Long.MIN_VALUE;
+// long thirdmax = nums[0];
 
-for(int i=0; i < nums.length ; i++){
-    if(nums[i] > firstmax){
-        thirdmax = secondmax;
-        secondmax = firstmax;
-        firstmax = nums[i];
-    }
+// for(int i=0; i < nums.length ; i++){
+//     if(nums[i] > firstmax){
+//         thirdmax = secondmax;
+//         secondmax = firstmax;
+//         firstmax = nums[i];
+//     }
 
-    else if(nums[i] > secondmax && nums[i] < firstmax){
-        thirdmax = secondmax;
-        secondmax = nums[i];
+//     else if(nums[i] > secondmax && nums[i] < firstmax){
+//         thirdmax = secondmax;
+//         secondmax = nums[i];
 
-    }else if(nums[i] > thirdmax && nums[i] < secondmax){
-        thirdmax = nums[i];
-    }
-}
-if(thirdmax == Long.MIN_VALUE || secondmax == Long.MIN_VALUE){return (int)firstmax;}
-return (int)thirdmax;
+//     }else if(nums[i] > thirdmax && nums[i] < secondmax){
+//         thirdmax = nums[i];
+//     }
+// }
+// if(thirdmax == Long.MIN_VALUE || secondmax == Long.MIN_VALUE){return (int)firstmax;}
+// return (int)thirdmax;
 
+
+Set<Integer> s = new HashSet<>();
+for(int n : nums)s.add(n);
+
+if(s.size() < 3) return Collections.max(s);
+
+s.remove(Collections.max(s));
+s.remove(Collections.max(s));
+
+return Collections.max(s);
 }
 }
