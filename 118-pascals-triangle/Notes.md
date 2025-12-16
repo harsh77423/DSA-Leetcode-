@@ -1,1 +1,1 @@
-<h2>pascals-triangle Notes</h2><hr>[ Time taken: 51 d 9 hrs 20 m 54 s ]
+<h2>pascals-triangle Notes</h2><hr>[ Time taken: 51 d 13 hrs 20 m 2 s ]
