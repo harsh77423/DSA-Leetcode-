@@ -1,44 +1,32 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        // return haystack.indexOf(needle);
+       
+//       int haylength = haystack.length();
+//       int needlelength = needle.length();
+//       if(haylength < needlelength)
+// return -1;
+// for(int i =0 ; i <= haystack.length()- needle.length() ;i++){
+//     int j=0;
+//     while(j < needle.length() && haystack.charAt(i+j) == needle.charAt(j))
+//     j++;
+//     if(j== needle.length()){
+//         return i;
+//     }
+// }
+// return -1;
 
-int k = needle.length();
-
-int j= 0;
-int i =0 ;
-while(j < haystack.length()){
-    if(j - i+1 == k){
-        String s1 = haystack.substring(i , j+1);
-        if(needle.equals(s1)){
-            return i;
-
-        }
-        i++;
-
+int len = needle.length();
+for(int i=0; i<haystack.length() ; i++){
+    if(len > haystack.length()){
+        return -1;
     }
-    j++;
-
+    String substr = haystack.substring(i , len);
+    if(substr.equals(needle)){
+        return i;
+    }
+    len++;
 }
 return -1;
 
-// int n = haystack.length();
-// int m = needle.length();
-
-// for(int i=0; i <= n-m ; i++){
-//     int k=0;
-
-// for( k=0; k < m ; k++){
-
-// if(haystack.charAt(i+k) != needle.charAt(k)){
-//     break;
-// }
-// }
-
-// // if(s1[i++] != s2[j]) break;}
-// if(k == m) {
-// return i;}
-// }
-
-// return -1;
     }
 }
